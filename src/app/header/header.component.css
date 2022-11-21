@@ -1,0 +1,11 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  margin-bottom: 1rem;
+}
+
+button:first-child {
+  margin-right: .5rem;
+}

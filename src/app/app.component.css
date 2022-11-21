@@ -1,0 +1,12 @@
+main {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+
+  align-items: space-between;
+}

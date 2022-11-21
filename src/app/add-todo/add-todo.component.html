@@ -1,0 +1,14 @@
+<form class="wrapper" [formGroup]="addTodoForm" (submit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>ToDo Title</mat-label>
+    <input matInput placeholder="Do homework" formControlName="title">
+    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>ToDo Content</mat-label>
+    <textarea matInput formControlName="content" rows="5"></textarea>
+  </mat-form-field>
+  <mat-checkbox matInput color="primary" formControlName="done">Done State</mat-checkbox>
+  <br />
+  <button mat-raised-button color="primary" type="submit">Add todo</button>
+</form>

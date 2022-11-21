@@ -1,0 +1,43 @@
+<mat-card class="todo-item" appearance="outlined" [class]="isInEditMode ? 'edit-mode' : ''">
+  <div *ngIf="!isInEditMode">
+    <mat-card-header class="todo-item__title">
+      <h3>{{ todo?.title }}</h3>
+    </mat-card-header>
+
+    <mat-card-content class="todo-item__content">
+      <p>{{ todo?.content }}</p>
+      <mat-checkbox matInput color="primary" [checked]="todo?.done" (click)="switchDone()">Done State</mat-checkbox>
+    </mat-card-content>
+  </div>
+  <div *ngIf="isInEditMode">
+    <form class="wrapper" [formGroup]="editTodoForm" (submit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>ToDo Title</mat-label>
+        <input matInput formControlName="title">
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>ToDo Content</mat-label>
+        <textarea matInput formControlName="content" rows="5"></textarea>
+      </mat-form-field>
+      <mat-checkbox matInput color="primary" formControlName="done">Done State</mat-checkbox>
+      <br />
+      <button mat-raised-button color="primary" type="submit">update</button>
+    </form>
+  </div>
+
+  <mat-card-actions align="end">
+    <button mat-button color="primary" (click)="onEdit()" >
+      {{isInEditMode ? "Discard" : "Edit"}}
+      <mat-icon matSuffix *ngIf="!isInEditMode">edit</mat-icon>
+      <mat-icon matSuffix *ngIf="isInEditMode">close</mat-icon>
+    </button>
+    <button mat-button color="primary" (click)="saveChanges()" *ngIf="isInEditMode">
+      Save<mat-icon matSuffix>save</mat-icon>
+    </button>
+    <button mat-button color="warn" (click)="onDelete()">
+      Delete<mat-icon matSuffix>delete_solid</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
+

@@ -1,0 +1,12 @@
+.todos_wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+
+@media screen and (max-width: 768px) {
+  .todos_wrapper {
+    grid-template-columns: repeat(auto-fit, 1fr);
+  }
+}
