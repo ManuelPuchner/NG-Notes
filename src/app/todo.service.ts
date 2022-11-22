@@ -24,6 +24,7 @@ export class TodoService {
       title: todo.title,
       content: todo.content,
       done: todo.done,
+      dueDate: todo.dueDate || new Date(),
     });
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }

@@ -10,5 +10,13 @@
   </mat-form-field>
   <mat-checkbox matInput color="primary" formControlName="done">Done State</mat-checkbox>
   <br />
+  <mat-form-field appearance="outline" class="datepicker">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dueDate">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <br />
   <button mat-raised-button color="primary" type="submit">Add todo</button>
 </form>

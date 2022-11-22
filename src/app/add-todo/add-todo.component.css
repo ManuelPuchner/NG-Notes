@@ -10,3 +10,11 @@
   margin-bottom: 1rem;
   padding: 1rem;
 }
+
+mat-datepicker-toggle {
+  margin-right: .3rem;
+}
+
+.datepicker {
+  width: clamp(10rem, 50%, 20rem);
+}

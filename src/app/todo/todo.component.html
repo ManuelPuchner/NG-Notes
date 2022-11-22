@@ -8,6 +8,10 @@
       <p>{{ todo?.content }}</p>
       <mat-checkbox matInput color="primary" [checked]="todo?.done" (click)="switchDone()">Done State</mat-checkbox>
     </mat-card-content>
+
+    <mat-card-content>
+      <P>{{ getDateAsString() }}</P>
+    </mat-card-content>
   </div>
   <div *ngIf="isInEditMode">
     <form class="wrapper" [formGroup]="editTodoForm" (submit)="onSubmit()">
@@ -23,6 +27,15 @@
       <mat-checkbox matInput color="primary" formControlName="done">Done State</mat-checkbox>
       <br />
       <button mat-raised-button color="primary" type="submit">update</button>
+      <br />
+      <mat-form-field appearance="outline" class="datepicker">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dueDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br />
     </form>
   </div>
 

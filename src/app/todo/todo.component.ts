@@ -30,7 +30,21 @@ export class TodoComponent implements OnInit {
       title: '',
       content: '',
       done: false,
+      dueDate: new Date(),
     });
+  }
+
+  getDateAsString() {
+    if (!this.todo) {
+      return 'No Date!';
+    }
+    let options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+
+    return new Date(this.todo.dueDate).toLocaleDateString('de-DE', options);
   }
 
   ngOnInit(): void {
@@ -43,6 +57,7 @@ export class TodoComponent implements OnInit {
       title: this.todo?.title as string,
       content: this.todo?.content as string,
       done: this.todo?.done as boolean,
+      dueDate: this.todo?.dueDate as Date,
     });
   }
 

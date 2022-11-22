@@ -3,4 +3,5 @@ export interface Todo {
   title: string;
   done: boolean;
   content: string;
+  dueDate: Date;
 }

@@ -22,15 +22,13 @@ export class AddTodoComponent {
       title: '',
       content: '',
       done: false,
+      dueDate: new Date(),
     });
   }
 
-
-
   onSubmit() {
-
     this.todoService.addTodo(this.addTodoForm.value as Todo);
-    // this.addTodoForm.reset();
+    this.addTodoForm.reset();
   }
 }
 
